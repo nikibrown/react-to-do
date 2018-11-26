@@ -48,21 +48,18 @@ class App extends Component {
     }
 
     deleteTodo(index) {
-        //console.log(index);
-        let todos = this.state.todos;
 
-        todos.filter((todo, indexofTodo) =>  {
-            console.log("index of todo that is run through filter: " + indexofTodo);
-            console.log("todo that was clicked: " + index);   
-            
-            // return the todos that do not have the index of the one clicked
-            // not working whyyyyy          
+        const todos = this.state.todos.slice();
+        console.log(todos);
+
+        const todo = todos[index];
+        console.log(todo);
+
+        let newTodos = this.state.todos.filter((todo, indexofTodo) =>  {  
             return indexofTodo !== index;
         });
 
-        console.log(todos);
-
-        this.setState({ todos: todos });
+        this.setState({ todos: newTodos });
     }
 
 
